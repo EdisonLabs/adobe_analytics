@@ -163,8 +163,6 @@ function adobe_analytics_page_attachments_alter(array &$attachments) {
 };
 EOT;
 
-    $attachments['#attached']['library']['urlconfig'] = 'adobe_analytics/urlconfig';
-
     /*
      * Need to use Markup::create() so that the delimiters don't get filtered.
      * @TODO find a better way to do this.

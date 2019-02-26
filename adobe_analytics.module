@@ -126,7 +126,7 @@ function adobe_analytics_page_attachments_alter(array &$attachments) {
 
   // Add the Report Suite tag.
   $config = \Drupal::config('adobe_analytics.report_suite');
-  if ($config->get('report_suites_enabled') == 1) {
+  if ($config->get('report_suites_enabled') == TRUE) {
     $mode = $config->get('report_suites_mode');
     $development_report_suites = $config->get('development_report_suites');
     $production_report_suites = $config->get('production_report_suites');

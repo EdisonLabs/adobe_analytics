@@ -199,7 +199,7 @@ class AdobeAnalyticsHelper {
       $build = $this->renderCdnMarkup($build);
     }
 
-    if ($this->datalayerConfig->get('data_layer_enabled') == 1) {
+    if ($this->datalayerConfig->get('data_layer_enabled') == TRUE) {
       $build = $this->renderDatalayerMarkup($build);
     }
 

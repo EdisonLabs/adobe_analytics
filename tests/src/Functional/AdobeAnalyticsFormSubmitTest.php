@@ -208,6 +208,7 @@ class AdobeAnalyticsFormSubmitTest extends BrowserTestBase {
     $this->assertSession()->statusCodeEquals(200);
 
     $edit = [
+      'report_suites_enabled' => TRUE,
       'report_suites_mode' => 'dev',
       'development_report_suites' => $this->randomMachineName(),
       'production_report_suites' => $this->randomMachineName(),

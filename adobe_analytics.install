@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for Pfizer Analytics
+ */
+
+/**
+ * Set data_layer_enabled and report_suites_enabled config items to be boolean.
+ */
+function adobe_analytics_update_8001() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('adobe_analytics.settings');
+
+  $data_layer_enabled = $config->get('data_layer_enabled');
+  $config->set('data_layer_enabled', (bool) $data_layer_enabled);
+
+  $report_suites_enabled = $config->get('report_suites_enabled');
+  $config->set('report_suites_enabled', (bool) $report_suites_enabled);
+}

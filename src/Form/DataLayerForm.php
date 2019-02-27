@@ -35,13 +35,13 @@ class DataLayerForm extends ConfigFormBase {
     $form['#attached']['library'][] = 'adobe_analytics/codesnippet';
     $form['data_layer_enabled'] = [
       '#required' => '1',
-      '#key_type_toggled' => '0',
-      '#default_value' => $config->get('data_layer_enabled'),
+      '#key_type_toggled' => 0,
+      '#default_value' => (int) $config->get('data_layer_enabled'),
       '#weight' => '0',
       '#type' => 'radios',
       '#options' => [
-        '1' => t('Yes'),
-        '0' => t('No'),
+        1 => t('Yes'),
+        0 => t('No'),
       ],
       '#title' => t('Enable Data Layer'),
     ];
@@ -184,7 +184,7 @@ class DataLayerForm extends ConfigFormBase {
     }
 
     $config
-      ->set('data_layer_enabled', $form_state->getValue('data_layer_enabled'))
+      ->set('data_layer_enabled', (bool) $form_state->getValue('data_layer_enabled'))
       ->set('data_layer_root_field', $form_state->getValue('data_layer_root_field'))
       ->set('data_layer_json_object', json_encode($data_layer_array, JSON_PRETTY_PRINT))
       ->save();

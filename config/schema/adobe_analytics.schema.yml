@@ -86,7 +86,7 @@ adobe_analytics.data_layer:
   label: 'Adobe Analytics data layer settings'
   mapping:
     data_layer_enabled:
-      type: string
+      type: boolean
       label: 'Data layer enabled/disabled'
     data_layer_root_field:
       type: string
@@ -119,7 +119,7 @@ adobe_analytics.report_suite:
   label: 'Adobe analytics Report Suite'
   mapping:
     report_suites_enabled:
-      type: string
+      type: boolean
       label: 'Data Layer enabled'
     report_suites_mode:
       type: string

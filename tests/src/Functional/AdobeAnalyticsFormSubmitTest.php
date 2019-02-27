@@ -161,7 +161,7 @@ class AdobeAnalyticsFormSubmitTest extends BrowserTestBase {
     $this->assertSession()->statusCodeEquals(200);
 
     $edit = [
-      'data_layer_enabled' => '1',
+      'data_layer_enabled' => TRUE,
       'data_layer_root_field' => $this->randomMachineName(),
       'data_layer_json_object' => '[]',
       'data_layer_level_option' => 'select_layer',
@@ -208,6 +208,7 @@ class AdobeAnalyticsFormSubmitTest extends BrowserTestBase {
     $this->assertSession()->statusCodeEquals(200);
 
     $edit = [
+      'report_suites_enabled' => TRUE,
       'report_suites_mode' => 'dev',
       'development_report_suites' => $this->randomMachineName(),
       'production_report_suites' => $this->randomMachineName(),

@@ -27,6 +27,11 @@ class AdobeAnalyticsPermissionTest extends BrowserTestBase {
   protected $adminUser;
 
   /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
+    
+  /**
    * Test the Adobe analytics access.
    */
   public function testAdministerAdobeAnalyticsAccess() {

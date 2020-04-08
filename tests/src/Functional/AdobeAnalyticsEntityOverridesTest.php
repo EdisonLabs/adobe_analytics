@@ -74,14 +74,16 @@ class AdobeAnalyticsEntityOverridesTest extends WebDriverTestBase {
     ]);
     $field_config->save();
 
-    entity_get_form_display('node', 'article', 'default')
+    \Drupal::service('entity_display.repository')
+    ->getFormDisplay('node', 'article', 'default')
       ->setComponent('field_adobe_analytics', [
         'type' => 'adobe_analytics',
         'settings' => [],
       ])
       ->save();
 
-    entity_get_display('node', 'article', 'default')
+    \Drupal::service('entity_display.repository')
+    ->getViewDisplay('node', 'article', 'default')
       ->setComponent('field_adobe_analytics', [
         'type' => 'adobe_analytics',
         'settings' => [],

@@ -24,6 +24,11 @@ class AdobeAnalyticsGeneralTest extends BrowserTestBase {
   protected $adminUser;
 
   /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
+
+  /**
    * Implementation of setUp().
    */
   public function setUp() {

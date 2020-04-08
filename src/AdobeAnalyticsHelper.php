@@ -9,11 +9,12 @@ use Drupal\Core\Routing\CurrentRouteMatch;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Utility\Token;
 use Drupal\system\Entity\Menu;
+use Drupal\Core\Security\TrustedCallbackInterface;
 
 /**
  * Class to provide helpful function.
  */
-class AdobeAnalyticsHelper {
+class AdobeAnalyticsHelper implements TrustedCallbackInterface {
 
   // To allow tracking by the AdobeAnalytics package.
   const ADOBEANALYTICS_TOKEN_CACHE = 'adobe_analytics:tag_token_results';
@@ -183,6 +184,13 @@ class AdobeAnalyticsHelper {
    */
   public function getVariables() {
     return $this->variables;
+  }
+  
+  /**
+   * {@inheritdoc}
+   */
+  public static function trustedCallbacks() {
+    return ['renderMarkup'];
   }
 
   /**

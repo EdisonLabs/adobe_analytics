@@ -311,7 +311,14 @@ class AdobeAnalyticsAdminSettings extends ConfigFormBase {
         ],
       ],
     ];
+    $form['tag_manager_container_path']['async'] = [
+      '#weight' => '2',
+      '#type' => 'checkbox',
+      '#title' => t('Load asynchronously (recommended).'),
+      '#default_value' => $config->get('async'),
+    ];
     $form['tag_manager_footer_code'] = [
+      '#description' => t('Not required for asynchronous load.'),
       '#weight' => '-4',
       '#type' => 'fieldset',
       '#title' => t('Footer Code'),
@@ -684,6 +691,7 @@ class AdobeAnalyticsAdminSettings extends ConfigFormBase {
       ->set('production_cdn_custom_tracking_js_after', $form_state->getValue('production_cdn_custom_tracking_js_after'))
       ->set('development_tag_manager_container_path', $form_state->getValue('development_tag_manager_container_path'))
       ->set('production_tag_manager_container_path', $form_state->getValue('production_tag_manager_container_path'))
+      ->set('async', $form_state->getValue('async'))
       ->set('development_tag_manager_footer_js', $form_state->getValue('development_tag_manager_footer_js'))
       ->set('production_tag_manager_footer_js', $form_state->getValue('production_tag_manager_footer_js'))
       ->set('extra_variables', $extra_vars)

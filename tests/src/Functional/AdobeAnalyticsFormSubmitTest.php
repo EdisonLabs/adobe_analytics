@@ -145,6 +145,7 @@ class AdobeAnalyticsFormSubmitTest extends BrowserTestBase {
           ->get('tag_manager_domain') . '/dev/container.js',
       'production_tag_manager_container_path' => $this->configFactory->getEditable('adobe_analytics.validation_config')
           ->get('tag_manager_domain') . '/stage/container.js',
+      'async' => TRUE,
       'development_tag_manager_footer_js' => $this->configFactory->getEditable('adobe_analytics.validation_config')
           ->get('cloud_domain') . '/dev/footer.js',
       'production_tag_manager_footer_js' => $this->configFactory->getEditable('adobe_analytics.validation_config')

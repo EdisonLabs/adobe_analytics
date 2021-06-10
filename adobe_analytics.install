@@ -18,3 +18,12 @@ function adobe_analytics_update_8001() {
   $report_suites_enabled = $config->get('report_suites_enabled');
   $config->set('report_suites_enabled', (bool) $report_suites_enabled);
 }
+
+/**
+ * Set async config item to TRUE.
+ */
+function adobe_analytics_update_8002() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('adobe_analytics.settings');
+  $config->set('async', TRUE)->save();
+}

@@ -315,7 +315,7 @@ class AdobeAnalyticsAdminSettings extends ConfigFormBase {
       '#weight' => '2',
       '#type' => 'checkbox',
       '#title' => t('Load asynchronously (recommended).'),
-      '#default_value' => $config->get('async'),
+      '#default_value' => $config->get('async') == '' ? 0 : 1,,
     ];
     $form['tag_manager_footer_code'] = [
       '#description' => t('Not required for asynchronous load.'),

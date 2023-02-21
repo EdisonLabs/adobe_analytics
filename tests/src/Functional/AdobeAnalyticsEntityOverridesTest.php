@@ -22,7 +22,7 @@ class AdobeAnalyticsEntityOverridesTest extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = ['adobe_analytics', 'node'];
+  protected static $modules = ['adobe_analytics', 'node'];
 
   /**
    * The admin user account.
@@ -34,7 +34,7 @@ class AdobeAnalyticsEntityOverridesTest extends WebDriverTestBase {
   /**
    * Implementation of setUp().
    */
-  public function setUp() {
+  public function setUp(): void {
     parent::setUp();
 
     // Create an admin user with all the permissions needed to run tests.
@@ -109,7 +109,8 @@ class AdobeAnalyticsEntityOverridesTest extends WebDriverTestBase {
     $edit = [
       'title[0][value]' => $this->randomMachineName(),
     ];
-    $this->drupalPostForm('node/add/article', $edit, 'Save');
+    $this->drupalGet('node/add/article');
+    $this->submitForm($edit, 'Save');
 
     $this->assertSession()->responseContains('globalSnippet');
     $this->assertSession()->responseContains('extraVariableName');
@@ -122,7 +123,7 @@ class AdobeAnalyticsEntityOverridesTest extends WebDriverTestBase {
       'field_adobe_analytics[0][adobe_analytics][include_main_codesnippet]' => FALSE,
       'field_adobe_analytics[0][adobe_analytics][codesnippet]' => 'var customVar = "customValue";',
     ];
-    $this->drupalPostForm(NULL, $edit, 'Save');
+    $this->submitForm($edit, 'Save');
     $this->assertSession()->responseNotContains('globalSnippet');
     $this->assertSession()->responseNotContains('extraVariableName');
     $this->assertSession()->responseContains('customVar');

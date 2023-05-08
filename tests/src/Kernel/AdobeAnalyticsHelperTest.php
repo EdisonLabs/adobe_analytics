@@ -16,7 +16,7 @@ class AdobeAnalyticsHelperTest extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'adobe_analytics',
     'adobe_analytics_test',
     'system',
@@ -33,7 +33,7 @@ class AdobeAnalyticsHelperTest extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->installEntitySchema('menu');
     $this->installEntitySchema('user');
@@ -129,12 +129,12 @@ class AdobeAnalyticsHelperTest extends KernelTestBase {
       ])
       ->set('role_tracking_type', 'inclusive')
       ->save();
-    $this->assertFalse($this->adobeAnalyticsHelper->skipTracking('1'));
+    $this->assertFalse($this->adobeAnalyticsHelper->skipTracking());
 
     \Drupal::configFactory()->getEditable('adobe_analytics.settings')
       ->set('role_tracking_type', 'exclusive')
       ->save();
-    $this->assertTrue($this->adobeAnalyticsHelper->skipTracking('1'));
+    $this->assertTrue($this->adobeAnalyticsHelper->skipTracking());
   }
 
   /**

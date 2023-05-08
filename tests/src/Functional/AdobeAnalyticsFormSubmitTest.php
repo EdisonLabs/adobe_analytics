@@ -13,7 +13,7 @@ class AdobeAnalyticsFormSubmitTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'user',
     'adobe_analytics',
   ];
@@ -33,7 +33,7 @@ class AdobeAnalyticsFormSubmitTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $permission = [
       'access administration pages',

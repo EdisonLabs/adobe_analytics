@@ -1,7 +1,7 @@
 name: Adobe Analytics
 description: "Adds Adobe Analytics javascript tracking code to your site's pages."
 type: module
-core_version_requirement: ^8 | ^9
+core_version_requirement: ^8 | ^9 | ^10
 configure: adobe_analytics.settings
 dependencies:
   - field

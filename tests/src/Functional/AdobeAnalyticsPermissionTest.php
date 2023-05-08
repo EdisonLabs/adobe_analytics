@@ -14,7 +14,7 @@ class AdobeAnalyticsPermissionTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'user',
     'adobe_analytics',
   ];

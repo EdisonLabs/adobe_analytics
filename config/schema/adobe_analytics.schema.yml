@@ -50,6 +50,9 @@ adobe_analytics.settings:
     production_tag_manager_footer_js:
       type: string
       label: 'Production Tag manager footer js code'
+    async:
+      type: boolean
+      label: 'Asyncronous analytics loading'
     role_tracking_type:
       type: string
       label: 'Role Tracking Type'

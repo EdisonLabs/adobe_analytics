@@ -6,3 +6,4 @@ configure: adobe_analytics.settings
 dependencies:
   - field
   - token
+version: 1.8.0
